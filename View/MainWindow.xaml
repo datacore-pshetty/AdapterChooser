@@ -1,0 +1,19 @@
+﻿<Window x:Class="AdapterChooser.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdapterChooser"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Button x:Name="buttonNetwork"
+                Content="Open Network Window"
+                Click="buttonNetwork_Click"
+                Width="200"
+                Height="50"
+                Background="#FF428A6B" />
+
+    </Grid>
+</Window>
