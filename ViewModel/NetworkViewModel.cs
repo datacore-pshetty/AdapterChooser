@@ -109,7 +109,7 @@ namespace AdapterChooser.ViewModel
             {
                 new HostConfiguration()
                 {
-                    Name = "ProxDev-1",
+                    Name = "Prox-1",
                     PhysicalAdapters = new PhysicalAdapterConfiguration[]
                     {
                         new PhysicalAdapterConfiguration()
@@ -208,7 +208,7 @@ namespace AdapterChooser.ViewModel
 
                 new HostConfiguration()
                 {
-                    Name = "ProxDev-2",
+                    Name = "Prox-2",
                     PhysicalAdapters = new PhysicalAdapterConfiguration[]
                     {
                         new PhysicalAdapterConfiguration()
