@@ -30,6 +30,7 @@ namespace AdapterChooser.View
             var viewModel = DataContext as NetworkViewModel;
         }
 
+        // To Debug the code
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var items = dataGrid.Items;
