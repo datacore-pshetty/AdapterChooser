@@ -7,7 +7,8 @@ namespace AdapterChooser.ViewModel
 {
     public class ListBoxSelectedItemsBehavior
     {
-        private static bool _isUpdating = false; // Prevent circular updates
+        // Prevent circular updates
+        private static bool _isUpdating = false;
 
         public static readonly DependencyProperty SelectedItemsProperty =
             DependencyProperty.RegisterAttached(
@@ -33,20 +34,10 @@ namespace AdapterChooser.ViewModel
                 // Remove old event handlers
                 listBox.SelectionChanged -= ListBox_SelectionChanged;
 
-                var oldCollection = e.OldValue as INotifyCollectionChanged;
                 var newCollection = e.NewValue as INotifyCollectionChanged;
 
-                // Unsubscribe from old collection changes
-                if (oldCollection != null)
-                {
-                    oldCollection.CollectionChanged -= Collection_CollectionChanged;
-                }
-
-                // Subscribe to new collection changes
                 if (newCollection != null)
                 {
-                    newCollection.CollectionChanged += Collection_CollectionChanged;
-
                     // Initial sync from collection to ListBox
                     SyncListBoxFromCollection(listBox, e.NewValue as IList);
                 }
@@ -54,18 +45,6 @@ namespace AdapterChooser.ViewModel
                 // Add new event handler
                 listBox.SelectionChanged += ListBox_SelectionChanged;
             }
-        }
-
-        private static void Collection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (_isUpdating) return;
-
-            // Find the ListBox that this collection is bound to
-            var collection = sender as IList;
-            if (collection == null) return;
-
-            // This is a simplified approach - in a real scenario you'd need to track which ListBox this collection belongs to
-            // For now, we'll rely on the SelectionChanged event to handle most updates
         }
 
         private static void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
